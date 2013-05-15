@@ -1,0 +1,9 @@
+<template name="room">
+  <div class="room">
+    {{#each questions}}
+      {{> question}}
+    {{/each}}
+    <input id="new-question" name="new-question" type="text" />
+    <button id='add-question'>Add</button>
+  </div>
+</template>
