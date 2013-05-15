@@ -11,9 +11,16 @@ if (Meteor.isClient) {
   Template.room.events({
     'click #add-question': function () {
       //Players.update(Session.get("selected_player"), {$inc: {score: 5}});
-        Questions.insert({question: $('#new-question').val(), rank: 0});
+      Questions.insert({question: $('#new-question').val(), rank: 0});
+    },
+    'click .up-vote' : function() {
+      Questions.update(this._id, {$inc: {rank: 5}});
+    },
+    'click .down-vote' : function() {
+      Questions.update(this._id, {$inc: {rank: -5}});
     }
   });
+
 }
 
 // On server startup, create some players if the database is empty.
